@@ -1,3 +1,16 @@
 spring:
   application:
     name: notes
+  config:
+    # Lee el .env de la raíz del repositorio (la app se arranca desde backend/).
+    # "optional:" evita el error si no existe (CI, producción), donde las variables
+    # llegan como variables de entorno reales.
+    import: optional:file:../.env[.properties]
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate   # Flyway crea las tablas; Hibernate solo comprueba que encajan
+    open-in-view: false    # la sesión de Hibernate se cierra al salir del servicio
