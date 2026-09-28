@@ -19,10 +19,14 @@ El alcance pide que varios usuarios editen la misma nota a la vez y en tiempo re
 
 Opción 3, como un módulo más del monolito. La conexión se autentica con el access token (ADR-004), y cada suscripción y cada envío se autorizan según la pertenencia al equipo.
 
-Cómo se fusionan las ediciones simultáneas queda fuera de este ADR.
+Incluye **presencia**: cada nota muestra quién la está viendo o editando. Solo informa, no bloquea a nadie, y el contenido se sigue guardando por REST con `@Version` (ADR-002).
+
+La edición simultánea con fusión de cambios (un CRDT como Yjs) es el paso siguiente y tendrá su propio ADR.
 
 ## Consecuencias
 
 - Sin procesos extra; reutiliza la autenticación y las reglas de pertenencia.
 - Con el *broker* en memoria, una sola instancia.
 - Una conexión abierta no caduca con el token: hay que cerrarla al revocar la sesión o al expulsar a alguien de un equipo.
+- La presencia depende de la conexión, no de un bloqueo: si alguien cierra la pestaña, desaparece de la lista y la nota no queda bloqueada.
+- Hasta que llegue la fusión con CRDT, dos personas que editen a la vez siguen recibiendo 409.
