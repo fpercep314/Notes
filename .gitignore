@@ -1,0 +1,19 @@
+# Guía personal de aprendizaje (solo local)
+roadToJavaDev/
+
+# Claude Code: worktrees y ajustes locales
+.claude/worktrees/
+.claude/settings.local.json
+
+# Variables de entorno y secretos
+.env
+
+# Logs
+*.log
+
+# Dependencias del frontend
+node_modules/
+
+# IDE
+.idea/
+.vscode/
