@@ -10,7 +10,7 @@ Plataforma colaborativa para pequeños equipos que permite almacenar, organizar 
 ## Stack tecnológico
 
 - Java / Spring Boot
-- React
+- React + TypeScript
 - Tailwind CSS
 - PostgreSQL
 - Docker Compose
