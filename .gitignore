@@ -4,6 +4,7 @@ roadToJavaDev/
 # Claude Code: worktrees y ajustes locales
 .claude/worktrees/
 .claude/settings.local.json
+.claude/settings.json
 
 # Variables de entorno y secretos
 .env
